@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import Questions from './components/Questions' ;
 import Header from './components/Layout/Header';
+import QuestionSite from './components/Layout/QuestionSite'
+import {BrowserRouter as Router ,Route} from 'react-router-dom';
 import './App.css';
+//this.setState({questions: [...this.state.questions.filter(question => question.id !== id)]}); 
 
 class App extends Component {
-  state = {
+   state = {
+    currentQuestion : null ,
     questions : [
       {
         id :1 ,
@@ -54,7 +58,11 @@ class App extends Component {
 
   delQuestion = (id) =>{
     this.setState({questions: [...this.state.questions.filter(question => question.id !== id)]});  }
-  
+    
+  /*GoToQuestion = (id) => {
+    this.setState({currentQuestion: id} );
+    return <Redirect push to="/question/"/>;
+  } */
 
   componentWillUpdate(nextProps,nextState){
     localStorage.setItem('previous', JSON.stringify(nextState.questions));
@@ -70,11 +78,19 @@ class App extends Component {
 
   render() {
    
-    
+    localStorage.setItem('previous', JSON.stringify(this.state.questions));
     return (
+      
       <div className="App">
       <Header/>
-        <Questions questions = {this.state.questions} delQuestion = {this.delQuestion}/>
+        <Router >
+          <Route exact path = "/"  render= {props => (
+            <Questions questions = {this.state.questions}/>
+          )}/>
+            
+          <Route path ="/question/:id" component = {QuestionSite} />
+         
+        </Router>
       </div>
     );
   }

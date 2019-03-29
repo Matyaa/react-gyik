@@ -12,8 +12,8 @@ class Header extends Component {
 const HeaderStyle = {
     textAlign: 'center',
     fontSize : '50px',
-    background : 'black',
-    color : 'white'
+    background : '#443266',
+    color : '#C3C3E5'
 }
 
 export default Header;

@@ -1,33 +1,35 @@
 import React, { Component } from 'react';
-
+import {Link} from 'react-router-dom';
 
 class Question extends Component {
 
   render() {
-    return (
+    
+    return ( 
       
         < p style = {QuestioNStyle}>
-              <a href = {this.props.question.id} style = {{textDecoration:'none',color : '#555'}} >{this.props.question.title} </a>
+             {this.props.question.title}<br/>
           {'Válaszok : '}
             {this.props.question.answers.length}
-            <button style = {btnStyle} onClick={this.props.delQuestion.bind(this,this.props.question.id)}> x </button>
+            <Link style = {btnStyle} to ={`/question/${this.props.question.id}`} > Válaszok megtekintése</Link>
             </p>
     )
   }
 }
 const QuestioNStyle = {
-    backgroundColor : 'silver',
-    color : 'black',
-    padding : "15px",
-    borderBottom : '2px solid black',
+    background : '#F1F0FF',
+    color : '#443266',
+    padding : "15px 15px",
+    borderBottom : '2px solid #C3C3E5',
     borderRadius : '15px',
     textDecoration : 'none'
    
 }
 const btnStyle = {
     float : 'right',
-    background : 'red',
     padding : '5px 10px',
-    borderRadius : '25%'
+    borderRadius : '5px',
+    background : '#443266',
+    color : '#F1F0FF'
 }
 export default Question;
