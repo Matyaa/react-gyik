@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-class AddQuestions extends Component {
+class AddAnswer extends Component {
     state = {
         title : '' 
     }
-    KerdesHozzaadas = (e) => {
+    ValaszHozzaadas = (e) => {
         this.setState({title : e.target.value})
 
     }
     onSubmit = (e) => {
-        e.preventDefault();
-        this.props.addQuestion(this.state.title);
+        
+        this.props.addAnswer(this.state.title);
         this.setState({title : ''});
 
     }
@@ -18,9 +18,9 @@ class AddQuestions extends Component {
         <form onSubmit = {this.onSubmit} style={{display : 'flex'}}>
             <input type="text"
             name = "title"
-            placeholder ="Kérdés hozzáadása..."
+            placeholder ="Válasz hozzáadása..."
             value = {this.state.title}
-            onChange = {this.KerdesHozzaadas}
+            onChange = {this.ValaszHozzaadas}
             style = {{flex : "10"}}
             />
             <input type ="submit"
@@ -32,4 +32,4 @@ class AddQuestions extends Component {
 }
 
 
-export default AddQuestions;
+export default AddAnswer;
