@@ -30,6 +30,7 @@ const btnStyle = {
     padding : '5px 10px',
     borderRadius : '5px',
     background : '#443266',
-    color : '#F1F0FF'
+    color : '#F1F0FF',
+    textDecoration: 'none'
 }
 export default Question;

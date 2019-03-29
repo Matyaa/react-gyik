@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Questions from './components/Questions' ;
 import Header from './components/Layout/Header';
+import AddQuestion from './components/AddQuestion';
 import QuestionSite from './components/Layout/QuestionSite'
 import {BrowserRouter as Router ,Route} from 'react-router-dom';
+import uuid from 'uuid';
 import './App.css';
 //this.setState({questions: [...this.state.questions.filter(question => question.id !== id)]}); 
 
@@ -11,35 +13,35 @@ class App extends Component {
     currentQuestion : null ,
     questions : [
       {
-        id :1 ,
+        id : uuid.v4(),
         title : "Megettem a kedvenc sajtom,hoz nekem valaki?" ,
         answers : [
           {
-            id : 1,
+            id : uuid.v4(),
             title : "Persze, szivesen!"
           }
           ]
       },
       {
-        id : 2,
+        id : uuid.v4(),
         title : "Vajon a vajon lehet egeret fogni?",
         answers : [
           {
-            id : 1,
+            id : uuid.v4(),
             title : "csak vaj alatt lehet, vajon sajnos nem"
           },
           {
-            id : 2,
+            id : uuid.v4(),
             title : "Nekem sikerult már vajon is fogni,bár lehet ő egy nagyon buta egér volt."
           }
           ]
       },
       {
-        id : 3,
+        id : uuid.v4(),
         title : "Kalkulus még tényleg könnyű tárgynak számit?",
         answers : [
           {
-            id : 1,
+            id : uuid.v4(),
             title : "Legkönnyebben megszerzett megajánlott jegy volt eddig ,ha sztochát nem vesszük!"
           }
           ]
@@ -73,7 +75,14 @@ class App extends Component {
   } */
 
   
-  
+  addQuestion = (title) => {
+    const newQ = {
+      id : uuid.v4(),
+      title ,
+      answers : []
+    }
+    this.setState({questions: [...this.state.questions,newQ]});
+  }
 
 
   render() {
@@ -82,10 +91,14 @@ class App extends Component {
     return (
       
       <div className="App">
-      <Header/>
+      
         <Router >
+          <Header/>
           <Route exact path = "/"  render= {props => (
+            <React.Fragment>
+            <AddQuestion addQuestion = {this.addQuestion}/>
             <Questions questions = {this.state.questions}/>
+            </React.Fragment>
           )}/>
             
           <Route path ="/question/:id" component = {QuestionSite} />

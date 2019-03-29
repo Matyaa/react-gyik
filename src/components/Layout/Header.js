@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 class Header extends Component {
   render() {
     return (
         <div style = {HeaderStyle}>
-            GYAKORI KÉRDÉSEK
+          <Link to ='/'
+           style ={{textDecoration :'none',
+           color : '#F1F0FF'}}> 
+            GYAKORI KÉRDÉSEK</Link>
         </div>
     );
   }
@@ -13,7 +17,7 @@ const HeaderStyle = {
     textAlign: 'center',
     fontSize : '50px',
     background : '#443266',
-    color : '#C3C3E5'
+    color : '#F1F0FF'    
 }
 
 export default Header;

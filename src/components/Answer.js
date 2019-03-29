@@ -15,7 +15,7 @@ const AnswerStyle = {
   padding : '20px',
   background : '#443266',
   color : '#C3C3E5',
-  marginTop : '5vh'
+  borderBottom: '1px solid '
 }
 
 
