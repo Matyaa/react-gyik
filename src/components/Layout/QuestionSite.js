@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Answers from '../Answers';
-import AddAnswer from '../AddAnswer';
-import EditQuestion from '../EditQuestion';
+import Answers from '../answer/Answers';
+import AddAnswer from '../answer/AddAnswer';
+import EditQuestion from '../question/EditQuestion';
 import uuid from 'uuid';
 class QuestionSite extends Component {
 
