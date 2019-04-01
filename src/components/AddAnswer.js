@@ -21,10 +21,10 @@ class AddAnswer extends Component {
             placeholder ="Válasz hozzáadása..."
             value = {this.state.title}
             onChange = {this.ValaszHozzaadas}
-            style = {{flex : "10"}}
+            style = {{flex : "10",fontSize : '25px'}}
             />
             <input type ="submit"
-            value = "Hozzáadás" />
+            value = "Hozzáadás" className = 'BtnSubmit'/>
 
         </form>
     );

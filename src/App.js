@@ -18,7 +18,8 @@ class App extends Component {
         answers : [
           {
             id : uuid.v4(),
-            title : "Persze, szivesen!"
+            title : "Persze, szivesen!",
+            isEditable : false
           }
           ]
       },
@@ -28,11 +29,13 @@ class App extends Component {
         answers : [
           {
             id : uuid.v4(),
-            title : "csak vaj alatt lehet, vajon sajnos nem"
+            title : "csak vaj alatt lehet, vajon sajnos nem",
+            isEditable : false
           },
           {
             id : uuid.v4(),
-            title : "Nekem sikerult már vajon is fogni,bár lehet ő egy nagyon buta egér volt."
+            title : "Nekem sikerult már vajon is fogni,bár lehet ő egy nagyon buta egér volt.",
+            isEditable : false
           }
           ]
       },
@@ -42,7 +45,8 @@ class App extends Component {
         answers : [
           {
             id : uuid.v4(),
-            title : "Legkönnyebben megszerzett megajánlott jegy volt eddig ,ha sztochát nem vesszük!"
+            title : "Legkönnyebben megszerzett megajánlott jegy volt eddig ,ha sztochát nem vesszük!",
+            isEditable : false
           }
           ]
       }
@@ -89,22 +93,24 @@ class App extends Component {
    
     localStorage.setItem('previous', JSON.stringify(this.state.questions));
     return (
+      <React.Fragment>
       
-      <div className="App">
       
         <Router >
           <Header/>
+          <div className="App">
           <Route exact path = "/"  render= {props => (
             <React.Fragment>
             <AddQuestion addQuestion = {this.addQuestion}/>
-            <Questions questions = {this.state.questions}/>
+            <Questions questions = {this.state.questions} delQuestion = {this.delQuestion}/>
             </React.Fragment>
           )}/>
             
           <Route path ="/question/:id" component = {QuestionSite} />
-         
+            </div>
         </Router>
-      </div>
+      
+      </React.Fragment>
     );
   }
 }

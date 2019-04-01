@@ -24,7 +24,8 @@ class AddQuestions extends Component {
             style = {{flex : "10"}}
             />
             <input type ="submit"
-            value = "Hozzáadás" />
+            value = "Hozzáadás" 
+            className = 'BtnSubmit'/>
 
         </form>
     );

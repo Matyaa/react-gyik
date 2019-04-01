@@ -17,7 +17,9 @@ const HeaderStyle = {
     textAlign: 'center',
     fontSize : '50px',
     background : '#443266',
-    color : '#F1F0FF'    
+    color : '#F1F0FF',
+    borderRadius : '15px',
+    padding : '5px 5px 5px 5px ' 
 }
 
 export default Header;

@@ -3,7 +3,7 @@ import Question from './Question' ;
 class Questions extends Component {
   render() {
     return this.props.questions.map((que)=>(
-    <Question question = {que} key = {que.id}/>
+    <Question question = {que} key = {que.id} delQuestion = {this.props.delQuestion}/>
   ));
   }
 }

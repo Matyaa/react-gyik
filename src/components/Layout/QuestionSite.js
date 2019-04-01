@@ -20,38 +20,58 @@ class QuestionSite extends Component {
      }
 
 
-
+ // Válasz hozzáadása
   addAnswer = (title) =>{
     const newA = {
       id : uuid.v4(),
-      title
+      title ,
+      isEditable : false
     } 
       this.state.questions.map(que => {
         if(que.id === this.props.match.params.id){
-          que.answers.push(newA);
+           return que.answers.push(newA);
         }
+        return que;
       }) ;
       localStorage.setItem('previous', JSON.stringify(this.state.questions));
   }
+// Válasz törlése
   delAnswer = (id) =>{
     this.state.questions.map(que => {
       if(que.id === this.props.match.params.id){
-        que.answers = [...que.answers.filter(ans => ""+ ans.id !==id)];   
+        que.answers = [...que.answers.filter(ans => { return ""+ ans.id !==id })];   
       }
+      return que ;
     })
     localStorage.setItem('previous', JSON.stringify(this.state.questions));
     window.location.reload();
+  }
+// Válasz szerkesztése 
+  edit = (title,idd) => {
+    this.state.questions.map(que => {
+      if(que.id === this.props.match.params.id){
+        que.answers.map( ans => {
+          if ( ans.id === idd) {
+            ans.title = title ;
+          }
+          return ans ;
+        })
+      }
+      return que ;
+    })
+    localStorage.setItem('previous', JSON.stringify(this.state.questions)); 
+    window.location.reload() ;
   }
 
 
   render() { 
      return this.state.questions.map((que)=>(que.id === this.props.match.params.id) 
-     ?( <div className="container" key = {que.id}>
-        <div style = {CimStyle}>{que.title}
-        
-        </div>
+     ?(
+        <div key = {que.id}>
+        <div className = 'CimStyle'>{que.title}</div>
         <AddAnswer addAnswer={this.addAnswer}/>
-        <Answers answers = {que.answers} delAnswer= {this.delAnswer}/>
+        <Answers answers = {que.answers} delAnswer= {this.delAnswer} edit = {this.edit}/>
+        
         </div>
       )
 
@@ -59,15 +79,6 @@ class QuestionSite extends Component {
       ); 
 }
 }
-const CimStyle = {
-  textAlign: 'center',  
-  fontSize : '25px' ,
-  padding : '20px 10px 10px 10px',
-  background : '#C3C3E5',
-  color : '#443266',
-  marginTop : '2vh'
 
-
-}
 
 export default QuestionSite;

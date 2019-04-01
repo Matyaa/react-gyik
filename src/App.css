@@ -1,4 +1,78 @@
 .App {
+    width : 95%  ;
+    padding-left : 2.5% ;
+    padding-right : 2.5% ;
+    padding-top : 0px ;
+    padding-bottom : 1.5% ;
+    overflow: auto ;
  
 }
 
+.AnswerStyle {
+    display : flex;
+  text-align : left;
+  font-size : 25px ;
+  padding : 20px;
+  background-color : #443266;
+  color : #C3C3E5;
+  border-bottom: 1px solid;
+}
+input [type='text'] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size : 15px;
+}
+
+.Btn {
+    float : right ;
+    padding : 5px 5px 5px 5px;
+    border-radius : 5px;
+    background-color : #443266;
+    color : #F1F0FF;
+    text-decoration: none;
+    flex : 1;
+    height : 25px
+}
+.BtnSubmit {
+    float : right ;
+    padding : 7px 7px 7px 7px;
+    border-radius : 5px;
+    background-color : #F1F0FF;
+    color : #443266;
+    text-decoration: none;
+    flex : 1;
+    height : 35px ;
+    border : 2px solid rgb(137, 12, 196) ;
+}
+
+.QuestioNStyle  {
+    background : #F1F0FF;
+    color : #443266;
+    padding : 15px 15px;
+    border-bottom : 2px solid #C3C3E5;
+    border-radius : 15px;
+    text-decoration : none;
+   
+}
+.btnStyle {
+    float : right;
+    padding : 5px 10px;
+    border-radius : 5px;
+    background : #443266;
+    color : #F1F0FF;
+    text-decoration: none;
+}
+
+.CimStyle  {
+    text-align: center;  
+    font-size : 25px ;
+    padding : 20px 10px 10px 10px;
+    background : #C3C3E5;
+    color : #443266;
+    margin-top : 10px
+  }

@@ -1,41 +1,42 @@
 import React, { Component } from 'react';
 class Answer extends Component {
 
+  state = {
+    title : this.props.answer.title 
+}
+ValaszSzerk = (e) => {
+    this.setState({title : e.target.value})
+
+}
+onSubmit = (e) => {
+    e.preventDefault();
+    this.props.edit(this.state.title,this.props.answer.id);
     
 
-  render() {
+}
+
+  render() {  
     return (
-        <div style={AnswerStyle}>
-            <div style = {TiS}>{this.props.answer.title}</div>
-            <button onClick = {this.props.delAnswer.bind(this,this.props.answer.id)}style = {Btn} > Törlés</button>
-            <button style = {Btn}> Szerkesztés</button>
-            </div>  
-        
+        <form className='AnswerStyle' onSubmit = {this.onSubmit}>
+
+            <input type="text" 
+            style = {{flex : '8' , background : '#252769' ,color : '#F1F0FF',borderWidth : '0px',paddingRight:''}} 
+            value = {this.state.title}
+            onChange = {this.ValaszSzerk}/>
+            
+            <input type="submit" 
+            className = 'Btn' 
+            onClick = {this.props.edit}
+            value = 'Szerkesztés'/>
+            
+            <button onClick = {this.props.delAnswer.bind(this,this.props.answer.id)} 
+            className='Btn' > Törlés</button>  
+            </form>  
+
+                  
     );
   }
 }
 
-const AnswerStyle = {
-    display : 'flex',
-  textAlign: 'left',  
-  fontSize : '25px' ,
-  padding : '20px',
-  background : '#443266',
-  color : '#C3C3E5',
-  borderBottom: '1px solid '
-}
-const TiS = {
-    flex : '15'
-}
 
-const Btn = {
-    float : 'right',
-    padding : '5px 5px 5px 5px',
-    borderRadius : '5px',
-    background : '#443266',
-    color : '#F1F0FF',
-    textDecoration: 'none',
-    flex : '1',
-    height : '25px'
-}
 export default Answer;
