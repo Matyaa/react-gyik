@@ -23,8 +23,6 @@ class AddAnswer extends Component {
             onChange = {this.ValaszHozzaadas}
             style = {{flex : "10",fontSize : '25px'}}
             />
-            <input type ="submit"
-            value = "Hozzáadás" className = 'BtnSubmit'/>
 
         </form>
     );

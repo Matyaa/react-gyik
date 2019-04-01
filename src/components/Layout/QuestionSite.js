@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Answers from '../Answers';
 import AddAnswer from '../AddAnswer';
+import EditQuestion from '../EditQuestion';
 import uuid from 'uuid';
 class QuestionSite extends Component {
 
@@ -62,15 +63,28 @@ class QuestionSite extends Component {
     localStorage.setItem('previous', JSON.stringify(this.state.questions)); 
     window.location.reload() ;
   }
-
+  editQuestion=(title)=>{
+    this.state.questions.map(que => {
+      if ( que.id === this.props.match.params.id) {
+        que.title = title ;
+      }
+      return que ;
+    })
+    localStorage.setItem('previous', JSON.stringify(this.state.questions)); 
+    window.location.reload() ;
+        
+  }
 
   render() { 
+    console.log(this.state.questions[this.props.match.params.id]);
      return this.state.questions.map((que)=>(que.id === this.props.match.params.id) 
      ?(
         <div key = {que.id}>
-        <div className = 'CimStyle'>{que.title}</div>
-        <AddAnswer addAnswer={this.addAnswer}/>
-        <Answers answers = {que.answers} delAnswer= {this.delAnswer} edit = {this.edit}/>
+          <div className = 'CimStyle'>
+          <EditQuestion question = {que} new = {this.editQuestion}/>
+           </div>
+          <AddAnswer addAnswer={this.addAnswer}/>
+          <Answers answers = {que.answers} delAnswer= {this.delAnswer} edit = {this.edit}/>
         
         </div>
       )

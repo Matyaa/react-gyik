@@ -13,30 +13,23 @@
   text-align : left;
   font-size : 25px ;
   padding : 20px;
-  background-color : #443266;
+  background-color : #513880;
   color : #C3C3E5;
   border-bottom: 1px solid;
 }
-input [type='text'] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size : 15px;
-}
+
 
 .Btn {
     float : right ;
-    padding : 5px 5px 5px 5px;
-    border-radius : 5px;
+    padding-bottom: 0px;
+    padding-top : 0px ;
+    padding-left : 0px;
+    padding-right: 0px;
+    border-radius : 0%;
     background-color : #443266;
     color : #F1F0FF;
     text-decoration: none;
     flex : 1;
-    height : 25px
 }
 .BtnSubmit {
     float : right ;
@@ -46,7 +39,7 @@ input [type='text'] {
     color : #443266;
     text-decoration: none;
     flex : 1;
-    height : 35px ;
+    height : 55px ;
     border : 2px solid rgb(137, 12, 196) ;
 }
 
@@ -57,6 +50,7 @@ input [type='text'] {
     border-bottom : 2px solid #C3C3E5;
     border-radius : 15px;
     text-decoration : none;
+    font-size:  25px ;
    
 }
 .btnStyle {
