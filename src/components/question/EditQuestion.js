@@ -26,7 +26,7 @@ class EditQuestion extends Component {
              background : '#C3C3E5',
              color : '#443266',
              borderWidth:'0px',
-            width : '100%'}}
+            width : '60%'}}
             value ={this.state.title}
              onChange = {this.onChange}/>
         </form>

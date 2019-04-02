@@ -15,11 +15,6 @@ class QuestionSite extends Component {
     )
      }
 
-  
-     componentWillUpdate(nextProps,nextState){
-      localStorage.setItem('previous', JSON.stringify(nextState.questions));
-     }
-
 
  // Válasz hozzáadása
   addAnswer = (title) =>{
@@ -63,6 +58,7 @@ class QuestionSite extends Component {
     localStorage.setItem('previous', JSON.stringify(this.state.questions)); 
     window.location.reload() ;
   }
+  // Kérdés szerkesztése
   editQuestion=(title)=>{
     this.state.questions.map(que => {
       if ( que.id === this.props.match.params.id) {
@@ -70,13 +66,12 @@ class QuestionSite extends Component {
       }
       return que ;
     })
-    localStorage.setItem('previous', JSON.stringify(this.state.questions)); 
+   localStorage.setItem('previous', JSON.stringify(this.state.questions)); 
     window.location.reload() ;
         
   }
 
   render() { 
-    console.log(this.state.questions[this.props.match.params.id]);
      return this.state.questions.map((que)=>(que.id === this.props.match.params.id) 
      ?(
         <div key = {que.id}>

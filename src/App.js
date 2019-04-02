@@ -6,47 +6,43 @@ import QuestionSite from './components/Layout/QuestionSite'
 import {BrowserRouter as Router ,Route} from 'react-router-dom';
 import uuid from 'uuid';
 import './App.css';
-//this.setState({questions: [...this.state.questions.filter(question => question.id !== id)]}); 
+ 
 
 class App extends Component {
    state = {
-    currentQuestion : null ,
+
     questions : [
       {
         id : uuid.v4(),
-        title : "Megettem a kedvenc sajtom,hoz nekem valaki?" ,
+        title : "Mi az élet értelme ?" ,
+        
         answers : [
           {
             id : uuid.v4(),
-            title : "Persze, szivesen!",
-            isEditable : false
+            title : "42 , ezt biztosan tudom!",
           }
           ]
       },
       {
         id : uuid.v4(),
-        title : "Vajon a vajon lehet egeret fogni?",
+        title : "Vajon a vajon lehet vajat olvasztani?",
+      
         answers : [
           {
             id : uuid.v4(),
-            title : "csak vaj alatt lehet, vajon sajnos nem",
-            isEditable : false
-          },
-          {
-            id : uuid.v4(),
-            title : "Nekem sikerult már vajon is fogni,bár lehet ő egy nagyon buta egér volt.",
-            isEditable : false
+            title : "Igen, amennyiben elfogadod,hogy a vaj alatt lévő vaj is elolvad.",
           }
+          
           ]
       },
       {
         id : uuid.v4(),
-        title : "Kalkulus még tényleg könnyű tárgynak számit?",
+        title : "Miért ilyen nehéz a kalkulus?",
+        
         answers : [
           {
             id : uuid.v4(),
-            title : "Legkönnyebben megszerzett megajánlott jegy volt eddig ,ha sztochát nem vesszük!",
-            isEditable : false
+            title : "A kalkulus még könnyű tárgynak számit!",
           }
           ]
       }
@@ -61,24 +57,17 @@ class App extends Component {
     )
   }
 
-
+  // Kérdés törlése
   delQuestion = (id) =>{
     this.setState({questions: [...this.state.questions.filter(question => question.id !== id)]});  }
     
-  /*GoToQuestion = (id) => {
-    this.setState({currentQuestion: id} );
-    return <Redirect push to="/question/"/>;
-  } */
 
   componentWillUpdate(nextProps,nextState){
     localStorage.setItem('previous', JSON.stringify(nextState.questions));
   }
-  /*
-  componentDidUpdate (){
-    this.setState(localStorage.getItem('previous').questions);
-  } */
-
   
+
+  // kérdés hozzáadása
   addQuestion = (title) => {
     const newQ = {
       id : uuid.v4(),
@@ -92,6 +81,7 @@ class App extends Component {
   render() {
    
     localStorage.setItem('previous', JSON.stringify(this.state.questions));
+    
     return (
       <React.Fragment>
       
